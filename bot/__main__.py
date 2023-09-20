@@ -18,8 +18,8 @@ except Exception as er:
 @bot.on(events.NewMessage(pattern="/start"))
 async def _(event):
     if event.sender_id != OWNER and event.sender_id not in DEV:
-        return e.reply("**Sorry You're not An Authorised User!**")
-    await start(e)
+        return event.reply("**Sorry You're not An Authorised User!**")
+    await start(event)
 
 
 @bot.on(events.NewMessage(pattern="/setcode"))
