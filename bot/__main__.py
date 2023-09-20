@@ -16,8 +16,8 @@ except Exception as er:
 ####### GENERAL CMDS ########
 
 @bot.on(events.NewMessage(pattern="/start"))
-async def _(e):
-    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+async def _(event):
+    if event.sender_id != OWNER and event.sender_id not in DEV:
         return e.reply("**Sorry You're not An Authorised User!**")
     await start(e)
 
@@ -136,7 +136,7 @@ async def _(e):
 
 @bot.on(events.NewMessage(incoming=True))
 async def _(event):
-        if str(event.sender_id) not in OWNER and event.sender_id !=DEV:
+        if event.sender_id != OWNER and event.sender_id not in DEV:
             return await event.reply_text("**Sorry You're not An Authorised User!**")
         if not event.photo:
             return
