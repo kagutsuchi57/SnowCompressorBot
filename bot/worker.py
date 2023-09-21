@@ -25,7 +25,7 @@ async def stats(e):
 async def dl_link(event):
     if not event.is_private:
         return
-    if str(event.sender_id) not in OWNER and event.sender_id !=DEV:
+    if event.sender_id != OWNER and event.sender_id not in DEV:
         return
     link, name = "", ""
     try:
@@ -120,7 +120,7 @@ async def encod(event):
         if not event.is_private:
             return
         event.sender
-        if str(event.sender_id) not in OWNER and event.sender_id !=DEV:
+        if event.sender_id != OWNER and event.sender_id not in DEV:
             return await event.reply("**Sorry You're not An Authorised User!**")
         if not event.media:
             return
