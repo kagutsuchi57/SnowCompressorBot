@@ -3,7 +3,7 @@ from .stuff import *
 
 
 async def eval(event):
-    if str(event.sender_id) not in OWNER and event.sender_id !=DEV:
+    if event.sender_id != OWNER and event.sender_id not in DEV:
         return event.reply("**Sorry You're not An Authorised User!**")
     cmd = event.text.split(" ", maxsplit=1)[1]
     old_stderr = sys.stderr
@@ -50,7 +50,7 @@ async def aexec(code, event):
 
 
 async def bash(event):
-    if str(event.sender_id) not in OWNER and event.sender_id !=DEV:
+    if event.sender_id != OWNER and event.sender_id not in DEV:
         return event.reply("**Sorry You're not An Authorised User!**")
     cmd = event.text.split(" ", maxsplit=1)[1]
     process = await asyncio.create_subprocess_shell(
